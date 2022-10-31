@@ -1,6 +1,7 @@
  <?php
 
  use APP\Controller\LoginController;
+use APP\DAO\LoginDAO;
 
  $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -12,6 +13,14 @@
 
     case '/login/auth':
         LoginController::auth();
+    break;
+
+    case '/login/delete':
+        LoginController::delete();
+    break;
+
+    case '/login/save':
+        LoginController::save();
     break;
 
     case '/logout':

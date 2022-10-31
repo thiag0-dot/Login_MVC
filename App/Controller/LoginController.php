@@ -9,9 +9,22 @@ class LoginController extends Controller
 
     public static function index()
     {
-        parent::render('Login/FormLogin');
+        $model = new LoginModel();
+        $model->getAllRows();
+
+        parent::render('Login/ListarLogin');
     }
 
+    public static function form()
+    {
+        $model = new LoginModel();
+
+        if(isset($_GET['id']))
+        {
+            $model = $model->getById((int) $_GET['id']);
+        }
+        include 'View/modules/CadastroLogin.php';
+    }
     public static function auth()
     {
         $model = new LoginModel();
@@ -36,5 +49,24 @@ class LoginController extends Controller
         unset($_SESSION['usuario_logado']);
 
         parent::isAuthenticated();
+    }
+
+    public static function save()
+    {
+        $Login = new LoginModel();
+        $Login->id = $_POST['id'];
+        $Login->email = $_POST['email'];
+        $Login->senha = $_POST['senha'];
+        $Login->save();
+        header("Location: /");
+    }
+
+    public static function delete()
+    {
+        $delete = new LoginModel();
+
+        $delete->delete((int) $_GET['id']);
+
+        header("Location: /");
     }
 }
