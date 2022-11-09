@@ -59,7 +59,7 @@ class LoginController extends Controller
         $Login->email = $_POST['email'];
         $Login->senha = $_POST['senha'];
         $Login->save();
-        header("Location: /");
+        header("Location: /login");
     }
 
     public static function delete()
@@ -68,6 +68,6 @@ class LoginController extends Controller
 
         $delete->delete((int) $_GET['id']);
 
-        header("Location: /");
+        header("Location: /login");
     }
 }

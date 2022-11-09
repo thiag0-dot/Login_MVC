@@ -12,7 +12,7 @@
 
 <body>
     <div id="form">
-        <form action="/Login/save" method="post" >
+        <form action="/login/save" method="post" >
             <!-- Fazendo o formulario -->
 
             <div id="cadastro" class="form-floating mb-3">
