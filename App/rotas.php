@@ -27,6 +27,10 @@ use APP\DAO\LoginDAO;
         LoginController::logout();
     break;
 
+    case '/login/cadastro':
+        LoginController::form();
+    break;
+
     case '/':
         echo "Página inicial";
     break;

@@ -12,6 +12,7 @@ class LoginController extends Controller
         $model = new LoginModel();
         $model->getAllRows();
 
+        include 'View/modules/Login/ListarLogin.php';
         parent::render('Login/ListarLogin');
     }
 
@@ -23,7 +24,7 @@ class LoginController extends Controller
         {
             $model = $model->getById((int) $_GET['id']);
         }
-        include 'View/modules/CadastroLogin.php';
+        include 'View/modules/Login/CadastroLogin.php';
     }
     public static function auth()
     {
