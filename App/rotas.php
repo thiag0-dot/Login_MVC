@@ -32,7 +32,7 @@ use APP\DAO\LoginDAO;
     break;
 
     case '/':
-        echo "Página inicial";
+        include 'View/modules/Login/PaginaInicial.php';
     break;
     
     default:
